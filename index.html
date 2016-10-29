@@ -14,8 +14,8 @@
       </section>
 
       <ul class="list">
-        <li v-for="task in tasks">
-          <input type="checkbox" class="checkbox">
+        <li v-for="task in tasks" v-bind:class="{ done: task.checked }">
+          <input type="checkbox" class="checkbox" v-model="task.checked">
           <label for="checkbox">{{ task.text }}</label>
           <button class="delete" v-on:click="removeTask(task)">X</button>
         </li>
