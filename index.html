@@ -9,17 +9,20 @@
     <div class="contianer" id="todo">
       <section class="panel">
         <input type="checkbox" id="marl-all">
-        <input type="text" placeholder="What do you need to do?" autofocus class="text-input">
+        <input type="text" placeholder="What do you need to do?" autofocus class="text-input" v-model="newTask" v-on:keyup.enter="addTask">
         <button>Clear List</button>
       </section>
 
       <ul class="list">
-        <li>
+        <li v-for="task in tasks">
           <input type="checkbox" class="checkbox">
-          <label for="checkbox"></label>
+          <label for="checkbox">{{ task.text }}</label>
           <button class="delete">X</button>
         </li>
       </ul>
+
+      <pre>{{ $data }}</pre>
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
     <script src="js/app.js"></script>
