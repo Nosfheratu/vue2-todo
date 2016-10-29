@@ -10,7 +10,7 @@
       <section class="panel">
         <input type="checkbox" id="marl-all">
         <input type="text" placeholder="What do you need to do?" autofocus class="text-input" v-model="newTask" v-on:keyup.enter="addTask">
-        <button>Clear List</button>
+        <button v-on:click="clearTasks">Clear List</button>
       </section>
 
       <ul class="list">
