@@ -4,6 +4,13 @@ new Vue({
     newTask: "",
     tasks: []
   },
+  computed: {
+    areAllSelected: function() {
+      return this.tasks.every(function(task) {
+        return task.checked;
+      }) && this.tasks.length > 0;
+    }
+  },
   methods: {
     addTask: function() {
       var task = this.newTask.trim();
@@ -22,6 +29,13 @@ new Vue({
     },
     clearTasks: function() {
       this.tasks = [];
+    },
+    selectAll: function() {
+      var targetValue = this.areAllSelected ? false : true;
+
+      for (var i = 0; i < this.tasks.length; i++) {
+        this.tasks[i].checked = targetValue;
+      }
     }
   }
 });

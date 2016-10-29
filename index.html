@@ -8,7 +8,7 @@
   <body>
     <div class="contianer" id="todo">
       <section class="panel">
-        <input type="checkbox" id="marl-all">
+        <input type="checkbox" id="marl-all" v-bind:checked="areAllSelected" v-on:click="selectAll">
         <input type="text" placeholder="What do you need to do?" autofocus class="text-input" v-model="newTask" v-on:keyup.enter="addTask">
         <button v-on:click="clearTasks">Clear List</button>
       </section>
